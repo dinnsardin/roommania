@@ -1,25 +1,32 @@
 FROM richarvey/nginx-php-fpm:3.1.6
 
 WORKDIR /var/www/html
-
 ENV WEBROOT /var/www/html/public
 
 COPY . .
 
-# Install NodeJS 20 + npm
+# Install Node 20 + npm
 RUN apk add --no-cache nodejs-current npm
 
-# Install PHP dependencies
+# PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# Build frontend
+# Frontend build
 RUN npm install
 RUN npm run build
 
 # Laravel setup
 RUN cp .env.example .env
-RUN php artisan key:generate
 
-RUN chmod -R 775 storage bootstrap/cache
+# Permissions
+RUN chmod -R 775 storage bootstrap/cache database
+
+# Laravel automatic setup
+RUN touch database/database.sqlite
+RUN php artisan key:generate
+RUN php artisan config:clear
+RUN php artisan cache:clear
+RUN php artisan view:clear
+RUN php artisan migrate --force
 
 EXPOSE 8080
