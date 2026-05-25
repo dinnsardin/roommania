@@ -1,0 +1,397 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* =========================================================
+   ROOMMANIA GLOBAL THEME
+========================================================= */
+
+html,
+body{
+    scroll-behavior: smooth;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body{
+    background: #1b0f0a;
+    color: #2f170d;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar{
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background: #2b1711;
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(
+        to bottom,
+        #8b5cf6,
+        #6d28d9
+    );
+
+    border-radius: 999px;
+    border: 2px solid #2b1711;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: linear-gradient(
+        to bottom,
+        #a78bfa,
+        #7c3aed
+    );
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection{
+    background: #8b5cf6;
+    color: white;
+}
+
+
+/* =========================================================
+   GLOBAL TRANSITION
+========================================================= */
+
+*{
+    transition:
+        background-color .2s ease,
+        border-color .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease,
+        color .2s ease;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+input,
+select,
+textarea{
+    outline: none !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    box-shadow:
+        0 0 0 3px rgba(139,92,246,.25);
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+button{
+    cursor: pointer;
+}
+
+button:active{
+    transform: scale(.98);
+}
+
+
+/* =========================================================
+   TABLES
+========================================================= */
+
+table{
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+a{
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   GLASS EFFECT
+========================================================= */
+
+.rm-glass{
+    backdrop-filter: blur(10px);
+}
+
+
+/* =========================================================
+   SHADOWS
+========================================================= */
+
+.rm-shadow{
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.25);
+}
+
+.rm-shadow-heavy{
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.45);
+}
+
+
+/* =========================================================
+   HOVER FLOAT
+========================================================= */
+
+.rm-hover:hover{
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes rmFloat{
+
+    0%{
+        transform: translateY(0px);
+    }
+
+    50%{
+        transform: translateY(-3px);
+    }
+
+    100%{
+        transform: translateY(0px);
+    }
+
+}
+
+.rm-float{
+    animation: rmFloat 3s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   DASHBOARD CARDS
+========================================================= */
+
+.rm-card{
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.20);
+
+    border-width: 3px;
+}
+
+
+/* =========================================================
+   PREMIUM BORDER
+========================================================= */
+
+.rm-border{
+    border-color: #d6b16d;
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.rm-title{
+    letter-spacing: -.02em;
+}
+
+.rm-subtitle{
+    letter-spacing: .04em;
+}
+
+
+/* =========================================================
+   FORM PLACEHOLDER
+========================================================= */
+
+::placeholder{
+    color: #9c7f63;
+    opacity: 1;
+}
+
+
+/* =========================================================
+   DISABLED
+========================================================= */
+
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled{
+    opacity: .7;
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:1024px){
+
+    body{
+        overflow-x: hidden;
+    }
+
+}
+
+
+/* =========================================================
+   PREMIUM GRADIENTS
+========================================================= */
+
+.rm-purple{
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #8b5cf6
+        );
+}
+
+.rm-blue{
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #3b82f6
+        );
+}
+
+.rm-green{
+    background:
+        linear-gradient(
+            135deg,
+            #16a34a,
+            #22c55e
+        );
+}
+
+.rm-orange{
+    background:
+        linear-gradient(
+            135deg,
+            #ea580c,
+            #fb923c
+        );
+}
+
+.rm-dark{
+    background:
+        linear-gradient(
+            135deg,
+            #4b2615,
+            #2f170d
+        );
+}
+
+
+/* =========================================================
+   HOVER GLOW
+========================================================= */
+
+.rm-glow:hover{
+
+    box-shadow:
+        0 0 0 2px rgba(255,255,255,.05),
+        0 10px 25px rgba(0,0,0,.30),
+        0 0 25px rgba(139,92,246,.25);
+
+}
+
+
+/* =========================================================
+   FIX WHITE AUTOFILL
+========================================================= */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+select:-webkit-autofill{
+
+    -webkit-text-fill-color: #2f170d;
+
+    -webkit-box-shadow:
+        0 0 0px 1000px #fff8eb inset;
+
+    transition:
+        background-color 5000s ease-in-out 0s;
+
+}
+
+
+/* =========================================================
+   PREVENT OVERSTRETCH
+========================================================= */
+
+main{
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   PREMIUM PANEL FEEL
+========================================================= */
+
+.rm-panel{
+
+    background:
+        linear-gradient(
+            to bottom,
+            #f6e6c6,
+            #ecdab7
+        );
+
+}
+
+
+/* =========================================================
+   STATUS PULSE
+========================================================= */
+
+@keyframes rmPulse{
+
+    0%{
+        transform: scale(1);
+    }
+
+    50%{
+        transform: scale(1.03);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+
+}
+
+.rm-pulse{
+    animation: rmPulse 2s infinite;
+}

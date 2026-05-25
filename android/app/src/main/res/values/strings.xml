@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">RoomMania</string>
+    <string name="title_activity_main">RoomMania</string>
+    <string name="package_name">com.roommania.app</string>
+    <string name="custom_url_scheme">com.roommania.app</string>
+</resources>
