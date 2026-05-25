@@ -4,8 +4,8 @@ WORKDIR /var/www/html
 
 COPY . .
 
-# Install NodeJS + npm
-RUN apk add --no-cache nodejs npm
+# Install NodeJS 20 + npm
+RUN apk add --no-cache nodejs-current npm
 
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
