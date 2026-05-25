@@ -23,8 +23,13 @@ RUN chmod -R 775 storage bootstrap/cache database
 
 # Laravel automatic setup
 RUN touch database/database.sqlite
+
 RUN php artisan key:generate
 RUN php artisan migrate --force
+
+# Clear and rebuild caches
+RUN php artisan optimize:clear
+RUN php artisan route:clear
 RUN php artisan config:clear
 RUN php artisan view:clear
 
