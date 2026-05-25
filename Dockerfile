@@ -4,13 +4,18 @@ WORKDIR /var/www/html
 
 COPY . .
 
+# Install NodeJS + npm
+RUN apk add --no-cache nodejs npm
+
+# Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
 
+# Build frontend
 RUN npm install
 RUN npm run build
 
+# Laravel setup
 RUN cp .env.example .env
-
 RUN php artisan key:generate
 
 RUN chmod -R 775 storage bootstrap/cache
